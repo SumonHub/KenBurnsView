@@ -1,0 +1,3 @@
+rootProject.name='KenBurnsView'
+include ':app'
+include ':library'
