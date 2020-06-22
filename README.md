@@ -18,18 +18,15 @@ Step 2. Add the dependency
         }
         
 # To-do
-Step 1. In manifest file, add permission
       
-      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-      
-Step 2. In .xml file-
+Step 1. In .xml file-
 
       <org.sumon.library.KenBurnsView
         android:id="@+id/ken_burns_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
               
-Step 3. Start Service in your onCreate().
+Step 2. In your onCreate() method.
  
       protected void onCreate(Bundle savedInstanceState) {
               super.onCreate(savedInstanceState);
