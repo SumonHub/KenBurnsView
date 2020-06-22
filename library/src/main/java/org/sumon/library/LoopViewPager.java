@@ -9,7 +9,7 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 /**
- * Created by katsuyagoto on 2015/04/17.
+ * Created by SumOn on 2020/01/17.
  */
 public class LoopViewPager extends ViewPager {
 
