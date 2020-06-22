@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -13,17 +14,11 @@ import androidx.viewpager.widget.ViewPager;
 public class LoopViewPager extends ViewPager {
 
     private static final int ALL_PAGE_COUNT = 100000;
-
     private int mPages;
-
     private int mFirstPosition;
-
     private int mCurrentPage;
-
     private int mAdapterPages;
-
     private LoopViewPagerListener mListener;
-
     private LoopOnPageChangeListener mOnPageChangeListener;
 
     public interface LoopViewPagerListener {
@@ -39,25 +34,19 @@ public class LoopViewPager extends ViewPager {
 
     public LoopViewPager(Context context, int pages, LoopViewPagerListener listener) {
         super(context);
-
         mPages = pages;
-
         if (pages == 0) {
             return;
         }
-
         if (pages == 1) {
             mAdapterPages = 1;
         } else {
             mAdapterPages = ALL_PAGE_COUNT;
         }
-
         setAdapter(new LoopPagerAdapter());
-
         int maxSets = ALL_PAGE_COUNT / mPages;
         mFirstPosition = (maxSets / 2) * mPages;
         setCurrentItem(-1, false);
-
         mListener = listener;
         mOnPageChangeListener = new LoopOnPageChangeListener();
         addOnPageChangeListener(mOnPageChangeListener);
@@ -71,10 +60,8 @@ public class LoopViewPager extends ViewPager {
 
     public void setCurrentItemAfterCancelListener(int item, boolean smoothScroll) {
         removeOnPageChangeListener(mOnPageChangeListener);
-
         int pos = item < 0 ? mFirstPosition : mFirstPosition + item;
         super.setCurrentItem(pos, smoothScroll);
-
         addOnPageChangeListener(mOnPageChangeListener);
     }
 
@@ -86,15 +73,12 @@ public class LoopViewPager extends ViewPager {
 
     public void setCurrentItemAfterCancelListener(int item) {
         removeOnPageChangeListener(mOnPageChangeListener);
-
         int pos = item < 0 ? mFirstPosition : mFirstPosition + item;
         super.setCurrentItem(pos);
-
         addOnPageChangeListener(mOnPageChangeListener);
     }
 
     private class LoopOnPageChangeListener implements OnPageChangeListener {
-
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
             mListener.onPageScroll(position, positionOffset, positionOffsetPixels);
@@ -120,6 +104,7 @@ public class LoopViewPager extends ViewPager {
 
     private class LoopPagerAdapter extends PagerAdapter {
 
+        @NonNull
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
             View v = mListener.OnInstantiateItem(pos2page(position));
@@ -128,7 +113,7 @@ public class LoopViewPager extends ViewPager {
         }
 
         @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
+        public void destroyItem(ViewGroup container, int position, @NonNull Object object) {
             container.removeView((View) object);
         }
 
@@ -138,7 +123,7 @@ public class LoopViewPager extends ViewPager {
         }
 
         @Override
-        public boolean isViewFromObject(View view, Object object) {
+        public boolean isViewFromObject(View view, @NonNull Object object) {
             return view.equals(object);
         }
     }
