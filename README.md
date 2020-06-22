@@ -44,6 +44,14 @@ Step 2. In your onCreate() method.
         // ResourceIDs
         List<Integer> resourceIDs = Arrays.asList(SampleImages.IMAGES_RESOURCE);
         kenBurnsView.loadResourceIDs(resourceIDs);
+        
+          // File path, or a uri or url
+          //List<String> urls = Arrays.asList(SampleImages.IMAGES_URL);
+          //kenBurnsView.loadStrings(urls);
+          
+          // MIX (url & id)
+          //List<Object> mixingList = Arrays.asList(SampleImages.IMAGES_MIX);
+          //kenBurnsView.loadMixing(mixingList);
 
         // LoopViewListener
         LoopViewPager.LoopViewPagerListener listener = new LoopViewPager.LoopViewPagerListener() {
