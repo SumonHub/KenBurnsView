@@ -80,5 +80,5 @@ Step 2. In your onCreate() method.
 
 
 ### Demo
-![](https://github.com/SumonHub/KenBurnsView/tree/master/preview/preview.gif)
+![](https://github.com/SumonHub/KenBurnsView/blob/master/preview/preview.gif)
 
