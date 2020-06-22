@@ -1,5 +1,5 @@
 # KenBurnsView
-next label photo anim with KenBurns effect
+the next label photo anim with KenBurns effect
 
 # Gradle Dependency
 Step 1. Add the JitPack repository to your build file
